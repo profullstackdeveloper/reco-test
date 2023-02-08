@@ -6,13 +6,13 @@ import Details from './pages/details';
 
 function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
           <Route path='/' element={<Details></Details>}></Route>
         </Routes>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
 

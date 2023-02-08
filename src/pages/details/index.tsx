@@ -1,9 +1,11 @@
 import React from 'react';
+import CreateButton from '../../components/buttons/CreateButton';
 
 export default function Details (): JSX.Element {
     return (
-        <div className='w-[2000px] bg-slate-600'>
+        <div className=''>
             This is details page!
+            <CreateButton></CreateButton>
         </div>
     )
 }
