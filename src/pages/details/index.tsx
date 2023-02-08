@@ -29,7 +29,7 @@ export default function Details(): JSX.Element {
                 {
                     processes.length > 0 && processes.map((process, index) => {
                         return (
-                            <ProcessCard title={process.name} content={process.description} imgUrl={process.iconUrl}></ProcessCard>
+                            <ProcessCard title={process.name} content={process.description} imgUrl={process.iconUrl} key={process.id}></ProcessCard>
                         )
                     })
                 }

@@ -9,7 +9,6 @@ interface ModalProps extends React.HtmlHTMLAttributes<unknown> {
 export default function CreateNewModal({ showModal, onClose }: ModalProps): JSX.Element {
 
     const handleCancel = () => {
-        console.log("called")
         onClose(false);
     }
 
