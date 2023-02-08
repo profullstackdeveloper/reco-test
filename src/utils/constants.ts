@@ -1,0 +1,1 @@
+export const CONTANT = "this is constant"
