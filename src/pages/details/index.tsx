@@ -2,10 +2,13 @@ import React from 'react';
 import CreateButton from '../../components/buttons/CreateButton';
 import CreateNewModal from '../../components/modals/CreateNewModal';
 import { getAllProcesses } from '../../api/fetchData';
+import { ProcessResponse } from '../../utils/types';
+import ProcessCard from '../../components/card/ProcessCard';
 
 export default function Details(): JSX.Element {
 
     const [showModal, setShowModal] = React.useState(false);
+    const [processes, setProcesses] = React.useState<ProcessResponse[]>([]);
 
     const handleClick = () => {
         setShowModal(true);
@@ -14,7 +17,7 @@ export default function Details(): JSX.Element {
     React.useEffect(() => {
         getAllProcesses().then((response) => {
             if (response) {
-                console.log(response.data);
+                setProcesses(response.data.mds);
             }
         })
     }, [])
@@ -22,6 +25,15 @@ export default function Details(): JSX.Element {
     return (
         <div className='w-full h-full'>
             <CreateButton onClick={handleClick}></CreateButton>
+            <div className='flex flex-wrap justify-between'>
+                {
+                    processes.length > 0 && processes.map((process, index) => {
+                        return (
+                            <ProcessCard title={process.name} content={process.description} imgUrl={process.iconUrl}></ProcessCard>
+                        )
+                    })
+                }
+            </div>
             <CreateNewModal showModal={showModal} onClose={setShowModal}></CreateNewModal>
         </div>
     )
